@@ -44,9 +44,10 @@ class LesionDataset(BaseDataset):
 
 
         A_path = self.A_paths[index]
-
         B_path = self.B_paths[index]
-        B_path = self.B_paths[random.randint(0,  self.B_size - 1)]
+
+        if(self.opt.mode == "unaligned"):
+            B_path = self.B_paths[random.randint(0,  self.B_size - 1)]
 
 
         A_img = Image.open(A_path).convert('RGB')
@@ -58,7 +59,6 @@ class LesionDataset(BaseDataset):
         return {'A': A, 'B': B,'A_paths': A_path,'  B_paths': B_path}
 
     def __len__(self):
-        #return self.opt.max_dataset_size
         return self.A_size
 
     def name(self):

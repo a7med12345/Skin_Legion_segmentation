@@ -38,12 +38,14 @@ class LesionModel(BaseModel):
         self.netG = networks.define_G(opt.input_nc, opt.output_nc, opt.ngf, opt.netG, opt.norm,
                                       not opt.no_dropout, opt.init_type, opt.init_gain, self.gpu_ids)
 
+        self.opt = opt
 
         if self.isTrain:
-            self.fake_AB_pool = ImagePool(opt.pool_size)
+
             # define loss functions
-            #self.criterion = torch.nn.MSELoss()
-            self.criterion = torch.nn.BCEWithLogitsLoss()
+            self.criterion = torch.nn.MSELoss()
+            if(self.opt.loss_type == "bce"):
+                self.criterion = torch.nn.BCEWithLogitsLoss()
             # initialize optimizers
             self.optimizers = []
             self.optimizer_G = torch.optim.Adam(self.netG.parameters(),
@@ -67,13 +69,8 @@ class LesionModel(BaseModel):
 
     def backward(self):
 
-        self.loss_G = self.criterion( self.fake_B,(self.real_B+1)/2)
-        self.fake_B_ = (((F.sigmoid(self.fake_B).detach()) /1) *2) - 1
-        #transform = [
-                      #transforms.Normalize((0.5, 0.5, 0.5),
-                                           #(0.5, 0.5, 0.5))]
-        #self.transform = transforms.Compose(transform)
-        #self.fake_B_ = self.transform( self.fake_B_)
+        self.loss_G = self.criterion( self.fake_B, self.real_B)
+
         self.loss_G.backward()
 
 

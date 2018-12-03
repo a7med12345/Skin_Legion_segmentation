@@ -1,0 +1,41 @@
+----------------- Options ---------------
+             aspect_ratio: 1.0                           
+               batch_size: 1                             	[default: 4]
+                    beta1: 0.5                           
+          checkpoints_dir: ./checkpoints                 
+                 dataroot: ./datasets/denoising          	[default: None]
+             dataset_mode: lesion                        
+                direction: AtoB                          
+          display_winsize: 100                           
+                    epoch: latest                        
+                 fineSize: 256                           
+                  gpu_ids: 0                             	[default: 0,1,2,3]
+                init_gain: 0.02                          
+                init_type: normal                        
+                 input_nc: 3                             
+                  isTrain: False                         	[default: None]
+                 loadSize: 256                           
+                  log_dir: ./log_dir                     
+                       lr: 0.002                         
+         max_dataset_size: inf                           
+                    model: lesion                        	[default: test]
+               n_layers_D: 3                             
+                     name: seg_bce                       	[default: experiment_name]
+                      ndf: 64                            
+                     netD: basic                         
+                     netG: unet_512                      
+                      ngf: 64                            
+               no_dropout: False                         
+                  no_flip: False                         
+                     norm: instance                      
+                    ntest: inf                           
+                 num_test: 50                            
+              num_threads: 4                             
+                output_nc: 3                             
+                    phase: test                          
+           resize_or_crop: none                          
+              results_dir: ./results/                    
+           serial_batches: False                         
+                   suffix:                               
+                  verbose: False                         
+----------------- End -------------------

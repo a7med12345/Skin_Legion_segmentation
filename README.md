@@ -57,6 +57,7 @@ BCE loss: `python train.py --name seg_bce --model lesion --batch_size 4 --dataro
 2.1.  Training results:
 
 2.1.1. Training curve
+
 ![alt-text-7](checkpoints/seg_l2/36d7e2eb89331e.svg "training_l2")
 
  2.1.2. Network Output Respectively after 200 epochs: 

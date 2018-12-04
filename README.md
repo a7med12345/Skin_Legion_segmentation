@@ -45,6 +45,7 @@ corresponding ground truth.
 To train:
 
 L2 loss: `python train.py --name seg_l2 --model lesion --batch_size 4 --dataroot ./datasets/lesion_dataset --gpu_ids 0`
+
 BCE loss: `python train.py --name seg_bce --model lesion --batch_size 4 --dataroot ./datasets/lesion_dataset --gpu_ids 0 --loss_type bce`
 
 1.Network architecture: UNet

@@ -47,10 +47,10 @@ To train:
 L2 loss: `python train.py --name seg_l2 --model lesion --batch_size 4 --dataroot ./datasets/lesion_dataset --gpu_ids 0`
 BCE loss: `python train.py --name seg_bce --model lesion --batch_size 4 --dataroot ./datasets/lesion_dataset --gpu_ids 0 --loss_type bce`
 
-1. Network architecture: UNet
+1.Network architecture: UNet
 
 
-2. Experiment with L2 Loss
+2.Experiment with L2 Loss
 
  
 2.1.  Training results:
@@ -71,7 +71,7 @@ BCE loss: `python train.py --name seg_bce --model lesion --batch_size 4 --dataro
 We use [Otsu thresholding](http://www.labbookpages.co.uk/software/imgProc/otsuThreshold.html)
 to generate the binary image from the network output.
 
-Respectively: `Input image; Target; Output segmentation; True positive; False positive`
+Respectively: `Input image; Target; Output segmentation; True Positive; Wrongly classified`
 
 ![alt-text-10](images/l2_loss_0_5.png "Output")
 ![alt-text-10](images/l2_loss_2_5.png "Output")
@@ -88,14 +88,16 @@ Respectively: `Input image; Target; Output segmentation; True positive; False po
         
 
 
-3. Experiment with binary cross entropy loss
+3.Experiment with binary cross entropy loss
 
 3.1.  Training results:
 
 3.1.1. Training curve
 ![alt-text-7](checkpoints/seg_bce/36d7e66164e458.svg "training_l2")
 
-3.1.2. Network Output Respectively after 200 epochs: `Input image; Output segmentation; Target`
+3.1.2. Network Output Respectively after 200 epochs: 
+
+`Input image; Output segmentation; Target`
 ![alt-text-7](checkpoints/seg_bce/seg_bce_training.png "training_l2")
 
 3.2. Testing results:
@@ -105,7 +107,7 @@ Respectively: `Input image; Target; Output segmentation; True positive; False po
 Similar to l2 loss; We use [Otsu thresholding](http://www.labbookpages.co.uk/software/imgProc/otsuThreshold.html)
 to generate the binary image from the network output.
 
-Respectively: `Input image; Target; Output segmentation; True positive; False positive`
+Respectively: `Input image; Target; Output segmentation; True Positive; Wrongly classified`
 
 ![alt-text-10](images/BCE_example_0_5.png "Output")
 ![alt-text-10](images/BCE_Example_1_5.png "Output")
@@ -119,7 +121,7 @@ Respectively: `Input image; Target; Output segmentation; True positive; False po
 
 ![alt-text-10](images/bc3_accuracy.png "L2 accuracy")
 
-4. Comparison between the two losses:
+4.Comparison between the two losses:
 
 | Loss     | Accuracy |
 | ---      | ---       |

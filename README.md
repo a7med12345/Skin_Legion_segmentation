@@ -143,16 +143,22 @@ To train:
     1.2. Discriminator:
     ![alt-text-7](images/discriminator.png "Discriminator architecture")
     
-2. Loss Function:
 
-    2.1 Generator Loss:
-    
-    2.2 Discriminator Loss:
 
-3. Training Results:
 
-    3.1. Training Curve
-    
-    3.2. Network Output Respectively after 200 epochs:
-    
-4. Testing Results:
+##### Testing Results:
+
+Respectively: `Input image; Target; Output segmentation; True Positive; Wrongly classified`
+
+![alt-text-10](images/GAN_1.png "Output")
+![alt-text-10](images/GAN_3.png "Output")
+
+
+Testing accuracy:
+
+![alt-text-10](images/GAN_accuracy.png "Output")
+
+After 200 epochs accuracy of:
+
+Test Accuracy: 0.8516359056745256
+
